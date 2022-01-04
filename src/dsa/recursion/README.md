@@ -37,12 +37,16 @@ T(N) = N + T(N - N) => N + 1
 => Time Complexity: O(N)
 ```
 
-#### HW, find Time Complexity
+#### Find Time Complexity
 ```
 Q1. T(N) = 2 * T (N / 2) + N, T(1) = 1
-Hint: Merge sort time complexity
+Ans: N log N
 
 Q2. T(N) = 2 * T(N - 1) + 1, T(1) = 1
+Ans: 2^N
 ```
+### Simplified Master's Theorem
+
+
 
 
