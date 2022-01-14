@@ -1,5 +1,6 @@
 package dsa.sorting;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -31,6 +32,13 @@ public class Sorting {
             System.out.print(n + " ");
         }
         System.out.println(" Counting Sort");
+
+        int[] B = {9, 3, 8, 6, 7, -2, 11, 4, 5};
+        sorting.mergeSort(B);
+        for (int n: B) {
+            System.out.print(n + " ");
+        }
+        System.out.println(" Merge Sort");
     }
     public int[] selectionSort(int[] A) {
         for (int i = 0; i < A.length; i++) {
@@ -96,8 +104,44 @@ public class Sorting {
         return A;
     }
 
+    public static void mergeSort(int[] arr) {
+        if (arr.length < 2) return;
+        int mid = arr.length / 2;
+        int[] leftArray = Arrays.copyOfRange(arr, 0, mid);
+        int[] rightArray = Arrays.copyOfRange(arr, mid, arr.length);
 
+        mergeSort(leftArray);
+        mergeSort(rightArray);
 
+        merge(arr, leftArray, rightArray);
+    }
+
+    public static void merge(int[] input, int[] A, int[] B) {
+        int i = 0, j = 0, k = 0;
+
+        while(i < A.length && j < B.length) {
+            if (A[i] <= B[j]) {
+                input[k] = A[i];
+                i++;
+            } else {
+                input[k] = B[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i < A.length) {
+            input[k] = A[i];
+            i++;
+            k++;
+        }
+
+        while(j < B.length) {
+            input[k] = B[j];
+            j++;
+            k++;
+        }
+    }
 
 }
 
